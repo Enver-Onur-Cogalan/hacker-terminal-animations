@@ -38,25 +38,25 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/hacker-terminal-animation.git
+git clone https://github.com/Enver-Onur-Cogalan/hacker-terminal-animations.git
 
 # Navigate to project directory
 cd hacker-terminal-animation
 
 # Install dependencies
-npm install
+yarn install
 
 # iOS setup (Mac only)
 cd ios && pod install && cd ..
 
 # Start Metro bundler
-npx react-native start
+yarn start
 
 # Run on Android
-npx react-native run-android
+yarn android
 
 # Run on iOS (Mac only)
-npx react-native run-ios
+yarn ios
 ```
 
 ## 🎯 Usage Examples
