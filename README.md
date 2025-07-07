@@ -1,97 +1,178 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 🎯 Hacker Terminal Animation - React Native
 
-# Getting Started
+> Matrix-style terminal animation built with React Native CLI + Reanimated 3
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+![Platform](https://img.shields.io/badge/platform-React%20Native-blue)
+![Reanimated](https://img.shields.io/badge/Reanimated-3.x-green)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-## Step 1: Start Metro
+## ✨ Features
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+- 🌧️ **Matrix Rain Animation** - Smooth falling characters
+- ⌨️ **Typewriter Effect** - Character-by-character typing
+- ⚡ **Glitch Effects** - RGB shift and text corruption
+- 🖥️ **Terminal Interface** - Realistic hacker terminal
+- 🎨 **Custom Hooks** - Reusable animation logic
+- 📱 **Performance Optimized** - 60 FPS smooth animations
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+## 🎬 Demo
 
-```sh
-# Using npm
-npm start
+![Image](https://github.com/user-attachments/assets/962fc641-bf10-4283-913c-775be0af57cb)
 
-# OR using Yarn
-yarn start
+## 🛠️ Tech Stack
+
+- **React Native CLI** - Cross-platform mobile development
+- **Reanimated 3** - High-performance animations
+- **TypeScript** - Type safety and better DX
+- **Custom Hooks** - Modular animation logic
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+
+- React Native CLI
+- Android Studio / Xcode
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/hacker-terminal-animation.git
+
+# Navigate to project directory
+cd hacker-terminal-animation
+
+# Install dependencies
+npm install
+
+# iOS setup (Mac only)
+cd ios && pod install && cd ..
+
+# Start Metro bundler
+npx react-native start
+
+# Run on Android
+npx react-native run-android
+
+# Run on iOS (Mac only)
+npx react-native run-ios
 ```
 
-## Step 2: Build and run your app
+## 🎯 Usage Examples
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+### TypewriterText Component
+```tsx
+<TypewriterText
+  text="Accessing mainframe..."
+  speed={80}
+  onComplete={() => console.log('Done!')}
+  showCursor={true}
+/>
 ```
 
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+### GlitchText Component
+```tsx
+<GlitchText
+  text="SYSTEM BREACH"
+  intensity={3}
+  frequency={2000}
+  showGlitchLayers={true}
+/>
 ```
 
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
+### MatrixRain Component
+```tsx
+<MatrixRain
+  width={screenWidth}
+  height={screenHeight}
+  speed={100}
+/>
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+## 🗂️ Project Structure
 
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+```
+src/
+├── components/
+│   ├── animation/
+│   │   ├── MatrixRain/
+│   │   ├── TypewriterText/
+│   │   └── GlitchText/
+│   └── screens/
+│       └── HackerScreen/
+├── hooks/
+│   ├── useMatrixAnimation.ts
+│   ├── useTypewriter.ts
+│   └── useGlitchEffect.ts
+├── utils/
+│   ├── animationHelpers.ts
+│   ├── textGenerators.ts
+│   └── constants.ts
+└── types/
+    └── animation.types.ts
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+## 🎨 Customization
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+### Colors
 
-## Step 3: Modify your app
+Edit `src/utils/constants.ts`:
 
-Now that you have successfully run the app, let's make changes!
+```typescript
+COLORS: {
+  PRIMARY: '#00ff00',    // Matrix green
+  SECONDARY: '#00cc00',  // Secondary green
+  ACCENT: '#008800',     // Accent color
+  BACKGROUND: '#000000', // Background
+}
+```
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+### Animation Speeds
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+```typescript
+TYPEWRITER: {
+  SPEED: 50,              // Typing speed (ms)
+  CURSOR_BLINK_DURATION: 500,
+},
+GLITCH: {
+  INTENSITY: 5,           // Glitch intensity (1-10)
+  FREQUENCY: 3000,        // Glitch frequency (ms)
+}
+```
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+## 🔧 Performance Tips
 
-## Congratulations! :tada:
+- Use `memo()` for static components.
+- Avoid directly reading `.value` during render.
+- Use `useSharedValue` for reactive animations.
+- Always clean up animations in `useEffect`.
 
-You've successfully run and modified your React Native App. :partying_face:
+## 📚 Learning Resources
 
-### Now what?
+- [React Native Reanimated Docs](https://docs.swmansion.com/react-native-reanimated/)
+- [Performance Best Practices](https://reactnative.dev/docs/performance)
+- [TypeScript with React Native](https://reactnative.dev/docs/typescript)
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+## 🤝 Contributing
 
-# Troubleshooting
+1. Fork the project.
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to your branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request.
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## 📝 License
 
-# Learn More
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-To learn more about React Native, take a look at the following resources:
+## 🙏 Acknowledgments
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- Inspired by "The Matrix" movie trilogy.
+- Built with React Native and Reanimated.
+- Thanks to the open-source community.
+
+## 📞 Contact
+
+- **LinkedIn**: [Onur Çoğalan](https://www.linkedin.com/in/onurcogalan/)
+- **Medium**: [onurcogalan_96763](https://medium.com/@onurcogalan_96763)
